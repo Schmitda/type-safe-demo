@@ -39,6 +39,6 @@ export class AppComponent {
       }
     );
 
-    this.userForm.getSafe(x => x.address.street).patchValue('Kuchenweg 12');
+    this.userForm.getSafe(x => x.address.).patchValue('Kuchenweg 12');
   }
 }

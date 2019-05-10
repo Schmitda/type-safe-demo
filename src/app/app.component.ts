@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FormGroupTyped, TSFormBuilder} from 'angular-type-safe-form';
 import {Validators} from '@angular/forms';
+import {FormGroupTyped, TSFormBuilder} from 'angular-type-safe-form';
 
 interface AddressFormInterface {
   city: string;
@@ -32,13 +32,13 @@ export class AppComponent {
       {
         address: this.tsFormBuilder.group<AddressFormInterface>({
           street: [null],
-          city: [null, Validators.required],
-          country: [null],
-          plz: [null, Validators.maxLength(6)]
+          country: [],
+          city: [null, Validators.required, null],
+          plz: []
         })
       }
     );
 
-    this.userForm.getSafe(x => x.address.).patchValue('Kuchenweg 12');
+    this.userForm.getSafe(x => x.address.street).patchValue('Kuchenweg 12');
   }
 }
